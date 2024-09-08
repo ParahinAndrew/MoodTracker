@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- UI colors -->
+    <color name="purple">#FF8B4CFC</color>
+    <color name="light_pink">#FFFAD9E6</color>
+    <color name="light_mallow">#FFDED7FA</color>
+    <!-- Chart colors -->
+    <color name="green_sea">#BF3CE862</color>
+    <color name="deep_red_orange">#BFFF1F11</color>
+    <color name="dark_blue">#BF3686FF</color>
+    <color name="bright_orange">#BFFF5C00</color>
+    <!-- Text colors -->
+    <color name="almost_black_100">#FF100F11</color>
+    <color name="almost_black_74">#BC100F11</color>
+    <color name="almost_black_64">#A3100F11</color>
+    <color name="gummigut">#FFE8B50E</color>
+    <color name="deep_yellow_pink">#FFFC4C4C</color>
+    <!-- Gradient colors 67 - AA, 34 - 56, 55 - 8C -->
+
+
+    <!-- For Dark Mode -->
+    <color name="pressed_btn_purple">#FF7A14FF</color>   <!-- pressed btn -->
+    <color name="hover_btn_purple">#FF9747FF</color>   <!-- hover btn -->
+    <color name="default_btn_purple">#FF892EFF</color>   <!-- default btn -->
+
+
+</resources>
