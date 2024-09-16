@@ -20,4 +20,20 @@
         android:name="com.example.moodtracker.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <include app:graph="@navigation/navigation_on_home" />
+    <!--<navigation android:id="@+id/navigation_on_home"
+        app:startDestination="@id/moodListFragment">
+        <fragment
+            android:id="@+id/moodCalendarFragment"
+            android:name="com.example.moodtracker.ui.home.calendar.MoodCalendarFragment"
+            android:label="fragment_mood_calendar"
+            tools:layout="@layout/fragment_mood_calendar" />
+        <fragment
+            android:id="@+id/moodListFragment"
+            android:name="com.example.moodtracker.ui.home.list.MoodListFragment"
+            android:label="fragment_mood_list"
+            tools:layout="@layout/fragment_mood_list" />
+    </navigation>-->
+
 </navigation>

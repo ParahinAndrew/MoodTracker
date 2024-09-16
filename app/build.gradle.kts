@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.moodtracker"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -46,13 +46,14 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
-    implementation(libs.security.api)
     implementation(libs.biometric)
     implementation(libs.bundles.hilt)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     ksp(libs.hilt.compiler)
 
     implementation(libs.splash.api)

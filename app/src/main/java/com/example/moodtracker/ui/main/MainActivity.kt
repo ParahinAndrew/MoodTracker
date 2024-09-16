@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
         bindingRegistration = ScreenRegistrationBinding.inflate(layoutInflater)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+
         binding.navMenu.setOnItemSelectedListener {
             navHostFragment.findNavController().navigate(it.itemId)
             true
@@ -44,12 +47,9 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
 
         biometricAuthManager = BiometricAuthManager(this, this)
 
-        if (viewModel.username.value == null) {
-            setContentView(bindingRegistration.root)
-            bindingRegistration.authenticateBtn.setOnClickListener {
-                registration()
-            }
-        } else {
+
+        if (viewModel.username.value != null) {
+
             setContentView(bindingPassword.root)
 
             bindingPassword.textLoggin.text = "Are you ${viewModel.username.value}?"
@@ -77,6 +77,11 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
                     Toast.makeText(this, "Biometric authentication is not available", Toast.LENGTH_SHORT).show()
                     Log.d("MainActivity", "Biometric authentication is not available by icon click")
                 }
+            }
+        } else {
+            setContentView(bindingRegistration.root)
+            bindingRegistration.authenticateBtn.setOnClickListener {
+                registration()
             }
         }
     }
@@ -115,6 +120,9 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
             bindingPassword.inputPasswordLayout.boxStrokeColor = ContextCompat.getColor(this, R.color.deep_red_orange)
             bindingPassword.textError.visibility = View.VISIBLE
         }
+
+
+
     }
 
     override fun onAuthenticationSuccess() {

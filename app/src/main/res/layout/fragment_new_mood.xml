@@ -8,10 +8,18 @@
 
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:text="new mood"
+        android:textSize="55sp"
+        android:layout_marginTop="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

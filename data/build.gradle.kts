@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
 
+    implementation(libs.security.api)
     implementation(libs.bundles.retrofit)
     implementation(libs.glide)
     implementation(libs.bundles.coroutines)
