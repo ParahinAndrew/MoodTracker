@@ -5,9 +5,12 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home"/>
 
-    <item android:id="@+id/newMoodFragment"
-        android:icon="@drawable/ic_plus"
+    <item android:id="@+id/placeholder"
         android:title="" />
+
+    <!--<item android:id="@+id/newMoodFragment"
+        android:icon="@drawable/ic_plus"
+        android:title="" />-->
 
     <item android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"

@@ -21,12 +21,10 @@ class MoodListAdapter(
             binding.textDataMood.text = mood.time.toString()
             binding.textDescriptionMood.text = mood.mood
 
-            // Устанавливаем слушатель клика на весь элемент
             itemView.setOnClickListener {
                 onItemClick(mood)
             }
 
-            // Устанавливаем слушатель клика на image_three_dots
             binding.imageThreeDots.setOnClickListener {
                 onThreeDotsClick(mood)
             }

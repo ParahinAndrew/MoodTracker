@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -38,15 +36,10 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
         bindingPassword = ScreenPasswordBinding.inflate(layoutInflater)
         bindingRegistration = ScreenRegistrationBinding.inflate(layoutInflater)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        bottomNavigate()
 
-        binding.navMenu.setOnItemSelectedListener {
-            navHostFragment.findNavController().navigate(it.itemId)
-            true
-        }
 
         biometricAuthManager = BiometricAuthManager(this, this)
-
 
         if (viewModel.username.value != null) {
 
@@ -84,6 +77,33 @@ class MainActivity : AppCompatActivity(), BiometricAuthCallback {
                 registration()
             }
         }
+    }
+
+    private fun bottomNavigate() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+
+        binding.navMenu.setOnItemSelectedListener {
+            navHostFragment.findNavController().navigate(it.itemId)
+            true
+        }
+
+        binding.newMoodBtn.setOnClickListener {
+            navHostFragment.findNavController().navigate(R.id.action_homeFragment_to_newMoodFragment)
+        }
+
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.newMoodFragment -> {
+                    binding.navMenu.visibility = View.GONE
+                    binding.newMoodBtn.visibility = View.GONE
+                }
+                else -> {
+                    binding.navMenu.visibility = View.VISIBLE
+                    binding.newMoodBtn.visibility = View.VISIBLE
+                }
+            }
+        }
+
     }
 
     override fun onStop() {

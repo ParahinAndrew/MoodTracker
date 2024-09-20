@@ -7,25 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.moodtracker.R
+import com.example.moodtracker.databinding.FragmentMoodCalendarBinding
 
 class MoodCalendarFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MoodCalendarFragment()
-    }
-
+    private lateinit var binding: FragmentMoodCalendarBinding
     private val viewModel: MoodCalendarViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_mood_calendar, container, false)
+        binding = FragmentMoodCalendarBinding.inflate(inflater)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // TODO
+    }
+
 }

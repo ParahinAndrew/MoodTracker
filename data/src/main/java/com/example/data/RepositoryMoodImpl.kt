@@ -23,7 +23,7 @@ class RepositoryMoodImpl @Inject constructor(
     }
 
     override suspend fun deleteMood(mood: MoodCardDomain) {
-        return moodDatabase.delete(mood.mood)
+        return moodDatabase.delete(mood.time)
     }
 
     override suspend fun deleteAllMoods() {

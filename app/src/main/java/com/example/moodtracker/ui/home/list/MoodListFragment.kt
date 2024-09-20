@@ -52,11 +52,12 @@ class MoodListFragment : Fragment() {
             },
             onThreeDotsClick = { mood ->
                 Toast.makeText(requireContext(), "Clicked on three dots for: ${mood.title}", Toast.LENGTH_SHORT).show()
+                viewModel.deleteAndUpdateMood(mood)
             }
         ).apply {
             submitList(viewModel.moods.value ?: emptyList())
         }
-        //binding.moodRecyclerView.addItemDecoration(MoodItemDecoration(16))
+        binding.moodRecyclerView.addItemDecoration(MoodItemDecoration(16))
     }
 
 }

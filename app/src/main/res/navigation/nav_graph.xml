@@ -9,7 +9,16 @@
         android:id="@+id/homeFragment"
         android:name="com.example.moodtracker.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_newMoodFragment"
+            app:destination="@id/newMoodFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/newMoodFragment"
         android:name="com.example.moodtracker.ui.newmood.NewMoodFragment"
@@ -21,8 +30,8 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 
-    <include app:graph="@navigation/navigation_on_home" />
-    <!--<navigation android:id="@+id/navigation_on_home"
+    <!--<include app:graph="@navigation/navigation_on_home" />-->
+    <navigation android:id="@+id/navigation_on_home"
         app:startDestination="@id/moodListFragment">
         <fragment
             android:id="@+id/moodCalendarFragment"
@@ -34,6 +43,9 @@
             android:name="com.example.moodtracker.ui.home.list.MoodListFragment"
             android:label="fragment_mood_list"
             tools:layout="@layout/fragment_mood_list" />
-    </navigation>-->
+        <action
+            android:id="@+id/action_global_newMoodFragment"
+            app:destination="@id/newMoodFragment" />
+    </navigation>
 
 </navigation>

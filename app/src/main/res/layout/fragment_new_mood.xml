@@ -6,20 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".ui.newmood.NewMoodFragment">
 
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_arrow_left"
         android:clickable="true"
-        android:text="new mood"
-        android:textSize="55sp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/mood_question_text"
+        style="@style/Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="How are you feeling today?"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/this_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16 марта 2022 г."
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mood_question_text" />
 
 
+    <EditText
+        android:id="@+id/title_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Title"
+        android:background="@android:color/transparent"
+        android:textSize="20sp"
+        android:inputType="textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/this_date_text"
+        style="@style/Heading1" />
+
+    <EditText
+        android:id="@+id/mood_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/pressed_btn_purple"
+        android:hint="Your mood description"
+        android:background="@android:color/transparent"
+        android:inputType="textMultiLine"
+        android:maxLines="20"
+        android:gravity="top|start"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_edit_text" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

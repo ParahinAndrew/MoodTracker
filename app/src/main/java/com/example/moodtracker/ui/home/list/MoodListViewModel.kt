@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.MoodCardDomain
+import com.example.domain.usecases.DeleteMoodItemUseCase
 import com.example.domain.usecases.GetMoodCardUseCase
 import com.example.moodtracker.R
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoodListViewModel @Inject constructor(
-    private val getMoodCardUseCase: GetMoodCardUseCase
+    private val getMoodCardUseCase: GetMoodCardUseCase,
+    private val deleteMoodItemUseCase: DeleteMoodItemUseCase
 ) : ViewModel() {
 
     private var _moods: MutableLiveData<List<MoodCardDomain>> = MutableLiveData()
@@ -23,23 +25,24 @@ class MoodListViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            // Выполняем запрос на фоновом потоке (IO)
-            var moods = withContext(Dispatchers.IO) {
+            val moods = withContext(Dispatchers.IO) {
                 getMoodCardUseCase.getAllMoods()
-            }
-            // Возвращаем результат на главный поток (Main)
-            if (moods.isEmpty()) {
-                moods = listOf(MoodCardDomain(title = "Empty", mood = "Empty", time = LocalDateTime.now()))
             }
             _moods.value = moods
         }
     }
 
-    /*private suspend fun getAllMoods(){
-        _moods.value = getMoodCardUseCase.getAllMoods()
-        if (_moods.value == null) {
-            _moods.value = emptyList()
+    fun deleteAndUpdateMood(mood: MoodCardDomain) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                deleteMoodItemUseCase.deleteMood(mood)
+            }
+            val moods = withContext(Dispatchers.IO) {
+                getMoodCardUseCase.getAllMoods()
+            }
+            _moods.value = moods
         }
-    }*/
+    }
+
 
 }
